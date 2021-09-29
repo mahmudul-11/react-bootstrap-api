@@ -13,7 +13,7 @@ const News = (props) => {
                     <Card.Text>
                         {description}
                     </Card.Text>
-                    <Button href={url} variant='dark'>Jump to Google </Button>
+                    <Button href={url} variant='dark'>Read Details</Button>
                 </Card.Body>
             </Card>
         </Col>
