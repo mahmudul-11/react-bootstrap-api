@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Row } from 'react-bootstrap';
+import { Button, Row, Spinner } from 'react-bootstrap';
 import News from './components/News/News';
 import { useEffect, useState } from 'react';
 
@@ -14,12 +14,20 @@ function App() {
   }, [])
   return (
     <div className="App">
-      <Row xs={1} md={3} className="g-4">
-        {
-          news.map(n => <News news={n}></News>)
-        }
+      {
+        news.length === 0 ? <Spinner animation="border" />
+          :
+          <Row xs={1} md={3} className="g-4">
 
-      </Row>
+            {
+              news.map(n => <News news={n}></News>)
+            }
+
+          </Row>
+
+
+      }
+
     </div>
   );
 }
