@@ -8,9 +8,9 @@ import { useEffect, useState } from 'react';
 function App() {
   const [news, setNews] = useState([]);
   useEffect(() => {
-    fetch('https://newsapi.org/v2/everything?q=tesla&from=2021-08-29&sortBy=publishedAt&apiKey=de7004b87ecb40179856c783e4d0554d')
+    fetch('https://www.themealdb.com/api/json/v1/1/search.php?s')
       .then(res => res.json())
-      .then(data => setNews(data.articles))
+      .then(data => setNews(data.meals))
   }, [])
   return (
     <div className="App">
@@ -20,7 +20,7 @@ function App() {
           <Row xs={1} md={3} className="g-4">
 
             {
-              news.map(n => <News news={n}></News>)
+              news?.map(n => <News key={n.idMeal} news={n}></News>)
             }
 
           </Row>
